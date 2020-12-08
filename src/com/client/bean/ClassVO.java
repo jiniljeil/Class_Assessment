@@ -5,10 +5,14 @@ import java.util.Date;
 public class ClassVO {
 	private String userID; 
 	private String className;
-	private String classEvaluation; 
+	private String classEvaluation; // db 크기 변경 
 	private Date currTime; 
 	private int good; 
-	private int point;
+	private float point;
+	private String hakbu;
+	private String subject; 
+	private String professor; 
+	private String others; // 성적 반영 
 	
 	public String getUserID() {
 		return userID;
@@ -40,10 +44,34 @@ public class ClassVO {
 	public void setGood(int good) {
 		this.good = good;
 	}
-	public int getPoint() {
+	public float getPoint() {
 		return point;
 	}
-	public void setPoint(int point) {
+	public void setPoint(float point) {
 		this.point = point;
+	}
+	public String getHakbu() {
+		return hakbu;
+	}
+	public void setHakbu(String hakbu) {
+		this.hakbu = hakbu;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getProfessor() {
+		return professor;
+	}
+	public void setProfessor(String professor) {
+		this.professor = professor;
+	}
+	public String getOthers() {
+		return others;
+	}
+	public void setOthers(String others) {
+		this.others = others;
 	} 
 }
