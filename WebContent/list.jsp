@@ -26,7 +26,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <div class="w3-container w3-display-container w3-padding-8">
   	<p><input class="w3-input w3-border" type="text" placeholder="Search" style="width:100%"></p>
-  	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%">Search</button>
+  	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%; background-color:#FFE1A2">Search</button>
   </div>
   
    <div class="w3-container w3-display-container w3-padding-8">
@@ -88,17 +88,17 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-row w3-grayscale w3-padding">
   
     <div class="w3-col l6 s6 w3-padding">
-      <div class="w3-container w3-white w3-margin-bottom" style="border-radius:20px">
+      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       	<div class="w3-container w3-padding">
       		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
       	</div>
       	<div class="w3-container">
       		
-      		<span class="w3-right">김기호 교수</span>
+      		<span class="w3-right" style="font-size:20px">김기호 교수</span>
       	</div>
       	<div class="w3-container w3-row-padding">
       		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">별점</span>
+   				<span class="w3-right">4.0</span>
    			</div>
       		<div class="w3-col w3-right s1" style="padding:0px">
    				<img src="./img/emptystar.png" style="width:100%">
@@ -116,22 +116,43 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    				<img src="./img/fullstar.png" style="width:100%">
    			</div>
       	</div>
+      	<hr style="margin:10px"></hr>
       	<div class="w3-container w3-padding">
       		<span class="w3-center">This class is nice!</span>
       	</div>
       </div>
-      <div class="w3-container w3-yellow w3-margin-bottom" style="border-radius:20px">
+      
+      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      		<span class="w3-left" style="font-size:30px">진일이의 인생수업<br></span>
       	</div>
       	<div class="w3-container">
-      		<span class="w3-right">김기호 교수</span>
+      		
+      		<span class="w3-right" style="font-size:20px">김진일 교수</span>
       	</div>
-      	<div class="w3-container">
-      		<span class="w3-right">별점</span>
+      	<div class="w3-container w3-row-padding">
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<span class="w3-right">5.0</span>
+   			</div>
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
       	</div>
+      	<hr style="margin:10px"></hr>
       	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is nice!</span>
+      		<span class="w3-center">This class is awsome!</span>
       	</div>
       </div>
     </div>
@@ -139,31 +160,69 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
     <div class="w3-col l6 s6 w3-padding">
     
-      <div class="w3-container w3-yellow w3-margin-bottom" style="border-radius:20px">
+      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      		<span class="w3-left" style="font-size:30px">컴퓨터 구조<br></span>
       	</div>
       	<div class="w3-container">
-      		<span class="w3-right">김기호 교수</span>
+      		
+      		<span class="w3-right" style="font-size:20px">용환기 교수</span>
       	</div>
-      	<div class="w3-container">
-      		<span class="w3-right">별점</span>
+      	<div class="w3-container w3-row-padding">
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<span class="w3-right">4.0</span>
+   			</div>
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/emptystar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
       	</div>
+      	<hr style="margin:10px"></hr>
       	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is nice!</span>
+      		<span class="w3-center">This class is perfect!</span>
       	</div>
       </div>
       
-       <div class="w3-container w3-yellow w3-margin-bottom" style="border-radius:20px">
+      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      		<span class="w3-left" style="font-size:30px">실전 프로젝트 1<br></span>
       	</div>
       	<div class="w3-container">
-      		<span class="w3-right">김기호 교수</span>
+      		
+      		<span class="w3-right" style="font-size:20px">김광 교수</span>
       	</div>
-      	<div class="w3-container">
-      		<span class="w3-right">별점</span>
+      	<div class="w3-container w3-row-padding">
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<span class="w3-right">4.0</span>
+   			</div>
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/emptystar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
       	</div>
+      	<hr style="margin:10px"></hr>
       	<div class="w3-container w3-padding">
       		<span class="w3-center">This class is nice!</span>
       	</div>
