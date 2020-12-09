@@ -30,6 +30,14 @@
 		border-radius : 20px;
 		
 	}
+	.imgbox{
+		margin-left: auto;
+		margin-right: auto;
+		width:150px;
+	}
+	.imgbox:hover {
+		background-color:#FFF3C8;
+	}
 	h4{
 		margin : 10px;
 		text-align : left;
@@ -44,8 +52,12 @@
 	}
 	form input[type="button"], form input[type="submit"]{
 		width: 120px; 
-		height: 40px;
+		height: 48px;
 		font-size: 15pt;
+		background-color: #A0A6AB;
+		border-radius:5px;
+		color:white;
+		margin-top : 10px;
 	}
 	select{
 		width: 90%; 
@@ -56,13 +68,19 @@
 		width: 110px; 
 		height: 48px;
 		font-size: 15pt;
+		background-color: #A0A6AB;
+		border-radius:5px;
+		color:white;
 	}
+	
 </style>
 </head>
 <body>
 	<div class="mark">
 		<h3 style="font-size: 20pt;">Honey Lecture</h3>
-		<img src="./img/mainimg.png" width="150px" height="150px" alt="img"/>
+		<div class="imgbox">
+			<img src="./img/mainimg.png" width="150px" height="150px" alt="img" onclick="location.href='home.jsp'"/>
+		</div>
 		<div class="innerbox">
 		<form action="join_ok.jsp" method="post" onSubmit="return check()">
 			<h4>아이디</h4>

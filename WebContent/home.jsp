@@ -17,12 +17,13 @@
 		margin-right: auto;
 	}
 	form input[type="text"], form input[type="password"]{
-		width: 15%; 
-		height: 10%;
+		width: 250px; 
+		height: 35px;
 		margin-bottom: 10px;
 	}
 	form input[type="button"], form input[type="submit"]{
-		width: 80px; height: 100px;
+		width: 125px; 
+		height: 40px;
 		font-size: 15pt;
 	}
 .w3-sidebar a {font-family: "Roboto", sans-serif}
