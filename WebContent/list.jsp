@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.client.dao.ClientDAO, com.client.bean.ClientVO" %>
+<%
+	String userid = pageContext.getSession().getAttribute("userID").toString();
+	String userpw = pageContext.getSession().getAttribute("userPW").toString(); 
+	ClientDAO dao = new ClientDAO(); 
+	ClientVO vo = dao.getClient(userid, userpw);
+%>
+
 <!DOCTYPE html>
 <html>
 <title>Honey Lecture</title>
@@ -28,7 +36,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <div class="w3-container w3-display-container w3-padding-8">
   	<p><input class="w3-input w3-border" type="text" placeholder="Search" style="width:100%"></p>
-  	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%; background-color:#FFE1A2">Search</button>
+  	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%">Search</button>
   </div>
   
    <div class="w3-container w3-display-container w3-padding-8">
@@ -37,24 +45,24 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    			<img src="./img/person.png" style="width:100%">
    		</div>
    		<div class="w3-col s6 w3-justify">   	
-   			<h3 class="w3-wide w3-center"><b>ê¹ì§ì¼</b></h3>
-   			<h6 class="w3-center" style="font-size:6pt">ì ì°ì ìê³µíë¶</h6>
+   			<h3 class="w3-wide w3-center"><b><%=vo.getNickname()%></b></h3>
+   			<h6 class="w3-center" style="font-size:6pt"><%=vo.getHarku() %></h6>
    		</div>
    	</div>
   </div>
   
   <div class="w3-padding-16 w3-large w3-text-grey" style="font-weight:bold">
-  	<a href="#" class="w3-bar-item w3-button">ì¬ê¸°ë</a>
-    <a href="#" class="w3-bar-item w3-button">ë­ë£ì§</a>
+  	<a href="addpost.jsp" class="w3-bar-item w3-button">강의 평가 작성하기</a>
+    <a href="#" class="w3-bar-item w3-button">내가 쓴 강의 평가</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      ë³ì  íì¸ <i class="fa fa-caret-down"></i>
+      별점 확인 <i class="fa fa-caret-down"></i>
     </a>
     <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>ë´ê° ì¤ íì </a>
-      <a href="#" class="w3-bar-item w3-button">ë¨ì´ ì¤ íì </a>
-      <a href="#" class="w3-bar-item w3-button">ë³ì  ìì íì¸</a>
+      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>내가 준 평점</a>
+      <a href="#" class="w3-bar-item w3-button">남이 준 평점</a>
+      <a href="#" class="w3-bar-item w3-button">별점 순위 확인</a>
     </div>
-    <a href="#" class="w3-bar-item w3-button">ìê°í ë±ë¡</a>
+    <a href="#" class="w3-bar-item w3-button">시간표 등록</a>
   </div>
   
   <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 

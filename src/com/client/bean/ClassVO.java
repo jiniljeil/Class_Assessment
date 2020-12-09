@@ -6,7 +6,7 @@ public class ClassVO {
 	private String userID; 
 	private String className;
 	private String classEvaluation; // db 크기 변경 
-	private Date currTime; 
+	private String listenTime; 
 	private int good; 
 	private float point;
 	private String hakbu;
@@ -32,11 +32,11 @@ public class ClassVO {
 	public void setClassEvaluation(String classEvaluation) {
 		this.classEvaluation = classEvaluation;
 	}
-	public Date getCurrTime() {
-		return currTime;
+	public String getListenTime() {
+		return listenTime;
 	}
-	public void setCurrTime(Date currTime) {
-		this.currTime = currTime;
+	public void setListenTime(String listenTime) {
+		this.listenTime = listenTime;
 	}
 	public int getGood() {
 		return good;

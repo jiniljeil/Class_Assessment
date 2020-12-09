@@ -13,7 +13,7 @@ public class ClientDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	private final String C_SELECT = "select * from client where client_id=?";
+	private final String C_SELECT = "select * from client where client_id=? and client_pw=?";
 	private final String C_DELETE = "delete from client where client_id=? and client_pw=?";
 	private final String C_INSERT = "insert into client (client_id, client_pw, nickname, numofclass, hakbu, grade) values (?, ?, ?, ?, ?, ?)";
 	private final String C_UPDATE_NIC = "update client set nickname=? where client_id=?";
@@ -35,7 +35,6 @@ public class ClientDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}
@@ -54,7 +53,6 @@ public class ClientDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}
@@ -73,7 +71,6 @@ public class ClientDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}
@@ -92,19 +89,19 @@ public class ClientDAO {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}
 	}
 	
 	// 계정 데이터 가져오기 
-	public ClientVO getClient(String client_id) {
+	public ClientVO getClient(String client_id, String client_pw) {
 		ClientVO client = null;
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(C_SELECT);
 			stmt.setString(1, client_id);
+			stmt.setString(2, client_pw);
 			rs = stmt.executeQuery();
 			if( rs.next()) {
 				client = new ClientVO(); 
@@ -112,6 +109,8 @@ public class ClientDAO {
 				client.setClient_pw(rs.getString("client_pw"));
 				client.setNickname(rs.getString("nickname"));
 				client.setNumofclass(rs.getInt("numofclass"));
+				client.setHarku(rs.getString("hakbu"));
+				client.setGrade(rs.getInt("grade"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

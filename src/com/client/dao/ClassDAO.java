@@ -27,7 +27,7 @@ public class ClassDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	private final String C_INSERT = "insert into from Class (className, classEvaluation, currTime, good, point, hakbu, subject, professor, others) values (?,?,?,?,?,?,?,?,?) ";
+	private final String C_INSERT = "insert into from Class (className, classEvaluation, listenTime, good, point, hakbu, subject, professor, others) values (?,?,?,?,?,?,?,?,?) ";
 	private final String C_DELETE = "delete from Class where userID=? and className=?";
 	private final String C_UPDATE = "update Class set classEvaluation=? where className=?";
 	private final String C_GOOD = "update Class set good=? where className=? and classEvaluation=?";
@@ -45,7 +45,7 @@ public class ClassDAO {
 				ClassVO one = new ClassVO();
 				one.setClassName(rs.getString("className"));
 				one.setClassEvaluation(rs.getString("classEvaluation"));
-				one.setCurrTime(rs.getDate("currTime"));
+				one.setListenTime(rs.getString("listenTime"));
 				one.setGood(rs.getInt("good"));
 				one.setPoint(rs.getFloat("point"));
 				one.setHakbu(rs.getString("hakbu"));
@@ -72,7 +72,7 @@ public class ClassDAO {
 			stmt =  conn.prepareStatement(C_INSERT);
 			stmt.setString(1, cv.getClassName());
 			stmt.setString(2, cv.getClassEvaluation());
-//			stmt.setDate(3, cv.getCurrTime());
+			stmt.setString(3, cv.getListenTime());
 			stmt.setInt(4,  0);
 			stmt.setFloat(5, cv.getPoint());
 			stmt.setString(6, cv.getHakbu());
