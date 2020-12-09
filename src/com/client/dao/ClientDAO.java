@@ -29,7 +29,7 @@ public class ClientDAO {
 			stmt.setString(2, client.getClient_pw());
 			stmt.setString(3, client.getNickname());
 			stmt.setInt(4, 0);
-			stmt.setString(5,  client.getHarku());
+			stmt.setString(5,  client.getHakbu());
 			stmt.setInt(6,  client.getGrade());
 			result = stmt.executeUpdate();
 		}catch(Exception e) {
@@ -109,7 +109,7 @@ public class ClientDAO {
 				client.setClient_pw(rs.getString("client_pw"));
 				client.setNickname(rs.getString("nickname"));
 				client.setNumofclass(rs.getInt("numofclass"));
-				client.setHarku(rs.getString("hakbu"));
+				client.setHakbu(rs.getString("hakbu"));
 				client.setGrade(rs.getInt("grade"));
 			}
 		} catch (SQLException e) {
