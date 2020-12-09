@@ -8,9 +8,8 @@ public class ClassVO {
 	private String classEvaluation; // db 크기 변경 
 	private String listenTime; 
 	private int good; 
-	private float point;
-	private String hakbu;
-	private String subject; 
+	private int point;
+	private String hakbu; 
 	private String professor; 
 	private String others; // 성적 반영 
 	
@@ -44,10 +43,10 @@ public class ClassVO {
 	public void setGood(int good) {
 		this.good = good;
 	}
-	public float getPoint() {
+	public int getPoint() {
 		return point;
 	}
-	public void setPoint(float point) {
+	public void setPoint(int point) {
 		this.point = point;
 	}
 	public String getHakbu() {
@@ -55,12 +54,6 @@ public class ClassVO {
 	}
 	public void setHakbu(String hakbu) {
 		this.hakbu = hakbu;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 	public String getProfessor() {
 		return professor;
