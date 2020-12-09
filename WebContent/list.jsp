@@ -1,11 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.client.dao.ClientDAO, com.client.bean.ClientVO" %>
+<%@page import="com.client.dao.ClientDAO, com.client.bean.ClientVO, com.client.bean.ClassVO, com.client.dao.ClassDAO, java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String userid = pageContext.getSession().getAttribute("userID").toString();
-	String userpw = pageContext.getSession().getAttribute("userPW").toString(); 
+	
+	String userID = pageContext.getSession().getAttribute("userID").toString();
+	String userPW = pageContext.getSession().getAttribute("userPW").toString(); 
 	ClientDAO dao = new ClientDAO(); 
-	ClientVO vo = dao.getClient(userid, userpw);
+	ClientVO vo = dao.getClient(userID, userPW);
+	
+	pageContext.getSession().setAttribute("userID", userID);
+	pageContext.getSession().setAttribute("userPW", userPW);
+	
+	ClassDAO classDAO = new ClassDAO();
+	List<ClassVO> list = classDAO.getList();
+	request.setAttribute("list",list);
 %>
 
 <!DOCTYPE html>
@@ -23,7 +32,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 </style>
 <body class="w3-content" style="max-width:1200px">
 
-<!-- Sidebar/menu -->
+<!— Sidebar/menu —>
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
@@ -46,7 +55,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    		</div>
    		<div class="w3-col s6 w3-justify">   	
    			<h3 class="w3-wide w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:6pt"><%=vo.getHarku() %></h6>
+   			<h6 class="w3-center" style="font-size:6pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
@@ -70,22 +79,22 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
 </nav>
 
-<!-- Top menu on small screens -->
+<!— Top menu on small screens —>
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
   <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
 </header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
+<!— Overlay effect when opening sidebar on small screens —>
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<!-- !PAGE CONTENT! -->
+<!— !PAGE CONTENT! —>
 <div class="w3-main" style="margin-left:250px">
 
-  <!-- Push down content on small screens -->
+  <!— Push down content on small screens —>
   <div class="w3-hide-large" style="margin-top:83px"></div>
   
-  <!-- Top header -->
+  <!— Top header —>
   <header class="w3-container w3-xlarge">
     <p class="w3-left">내가 준 평점</p>
     <p class="w3-right">
@@ -94,157 +103,52 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     </p>
   </header>
   
-    <!-- Product grid -->
+    <!— Product grid —>
   <div class="w3-row w3-grayscale w3-padding">
   
     <div class="w3-col l6 s6 w3-padding">
-      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
-      	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
-      	</div>
-      	<div class="w3-container">
-      		
-      		<span class="w3-right" style="font-size:20px">김기호 교수</span>
-      	</div>
-      	<div class="w3-container w3-row-padding">
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">4.0</span>
-   			</div>
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/emptystar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-      	</div>
-      	<hr style="margin:10px"></hr>
-      	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is nice!</span>
-      	</div>
-      </div>
-      
-      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
-      	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">진일이의 인생수업<br></span>
-      	</div>
-      	<div class="w3-container">
-      		
-      		<span class="w3-right" style="font-size:20px">김진일 교수</span>
-      	</div>
-      	<div class="w3-container w3-row-padding">
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">5.0</span>
-   			</div>
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-      	</div>
-      	<hr style="margin:10px"></hr>
-      	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is awsome!</span>
-      	</div>
-      </div>
-    </div>
-
-
-    <div class="w3-col l6 s6 w3-padding">
-    
-      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
-      	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">컴퓨터 구조<br></span>
-      	</div>
-      	<div class="w3-container">
-      		
-      		<span class="w3-right" style="font-size:20px">용환기 교수</span>
-      	</div>
-      	<div class="w3-container w3-row-padding">
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">4.0</span>
-   			</div>
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/emptystar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-      	</div>
-      	<hr style="margin:10px"></hr>
-      	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is perfect!</span>
-      	</div>
-      </div>
-      
-      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
-      	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">실전 프로젝트 1<br></span>
-      	</div>
-      	<div class="w3-container">
-      		
-      		<span class="w3-right" style="font-size:20px">김광 교수</span>
-      	</div>
-      	<div class="w3-container w3-row-padding">
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">4.0</span>
-   			</div>
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/emptystar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-   			<div class="w3-col w3-right s1" style="padding:0px">
-   				<img src="./img/fullstar.png" style="width:100%">
-   			</div>
-      	</div>
-      	<hr style="margin:10px"></hr>
-      	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is nice!</span>
-      	</div>
-      </div>
-      
-    </div>
-
+      <c:forEach items="${list}" var="u">
+	      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
+	      	 <div class="w3-container w3-padding">
+	      		<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
+	      	 </div>
+	      	 <div class="w3-container">
+	      		
+	      		<span class="w3-right" style="font-size:20px">${u.professor()}</span>
+	      	 </div>
+	      	 <div class="w3-container w3-row-padding">
+	      		<div class="w3-col w3-right s1" style="padding:0px">
+	   				<span class="w3-right">${u.getPoint()}</span>
+	   			</div>
+	   			<!-- 별 수정 -->
+	      		<div class="w3-col w3-right s1" style="padding:0px">
+	   				<img src="./img/emptystar.png" style="width:100%">
+	   			</div>
+	   			<div class="w3-col w3-right s1" style="padding:0px">
+	   				<img src="./img/fullstar.png" style="width:100%">
+	   			</div>
+	   			<div class="w3-col w3-right s1" style="padding:0px">
+	   				<img src="./img/fullstar.png" style="width:100%">
+	   			</div>
+	   			<div class="w3-col w3-right s1" style="padding:0px">
+	   				<img src="./img/fullstar.png" style="width:100%">
+	   			</div>
+	   			<div class="w3-col w3-right s1" style="padding:0px">
+	   				<img src="./img/fullstar.png" style="width:100%">
+	   			</div>
+	      	</div>
+	      	<hr style="margin:10px"></hr>
+	      	<div class="w3-container w3-padding">
+	      		<span class="w3-center">${u.getClassEvaluation()}</span>
+	      	</div>
+	     </div>
+   </c:forEach>
+     </div>
   </div>
   
 
 
-  <!-- End page content -->
+  <!— End page content —>
 </div>
 
 
