@@ -66,7 +66,6 @@ public class ClientDAO {
 		}
 		return 0;
 	}
-
 	
 	// 계정 삭제 
 	public void deleteClient(String client_id, String Password) {
@@ -82,6 +81,7 @@ public class ClientDAO {
 		}
 	}
 	
+	// 계정 데이터 가져오기 
 	public ClientVO getClient(String client_id) {
 		ClientVO client = null;
 		try {
@@ -103,4 +103,7 @@ public class ClientDAO {
 		}
 		return client; 
 	}
+	
+	
+	
 }
