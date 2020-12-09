@@ -35,7 +35,7 @@
 		<form action="login.jsp" method="post" class="login">
 			<input type="text" name="userid" placeholder="아이디를 입력하세요"/><br>
 			<input type="password" name="userpw" placeholder="비밀번호를 입력하세요"/><br> 
-			<input type="button" value="회원 가입"/> 
+			<input type="button" onclick="location.href='join.jsp'" value="회원 가입"/> 
 			<input type="submit" value="로그인"/>
 		</form>
 	</div>

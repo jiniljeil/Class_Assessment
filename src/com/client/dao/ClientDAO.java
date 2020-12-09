@@ -13,12 +13,11 @@ public class ClientDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	private final String C_SELECT = "select * from clinet where client_id=?";
+	private final String C_SELECT = "select * from client where client_id=?";
 	private final String C_DELETE = "delete from client where client_id=? and client_pw=?";
-	private final String C_INSERT = "insert into client (client_id, client_pw, nickname, numofclass) values (?, ?, ?, ?)";
+	private final String C_INSERT = "insert into client (client_id, client_pw, nickname, numofclass, hakbu, grade) values (?, ?, ?, ?, ?, ?)";
 	private final String C_UPDATE_NIC = "update client set nickname=? where client_id=?";
 	private final String C_UPDATE_PASS = "update client set password=? where client_id=?";
-	
 	// 회원 가입
 	public int insertClient(ClientVO client) {
 		int result = 0; 
@@ -30,9 +29,15 @@ public class ClientDAO {
 			stmt.setString(2, client.getClient_pw());
 			stmt.setString(3, client.getNickname());
 			stmt.setInt(4, 0);
+			stmt.setString(5,  client.getHarku());
+			stmt.setInt(6,  client.getGrade());
 			result = stmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 		return result; 
 	}
@@ -48,6 +53,10 @@ public class ClientDAO {
 			return 1; 
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 		return 0; 
 	}
@@ -63,6 +72,10 @@ public class ClientDAO {
 			return 1; 
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 		return 0;
 	}
@@ -78,6 +91,10 @@ public class ClientDAO {
 			stmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 	}
 	
@@ -96,14 +113,35 @@ public class ClientDAO {
 				client.setNickname(rs.getString("nickname"));
 				client.setNumofclass(rs.getInt("numofclass"));
 			}
-			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 		return client; 
 	}
 	
-	
+	public boolean confirmID(String client_id) {
+		boolean check = false; 
+		try{
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT);
+			stmt.setString(1, client_id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				check = true; 
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return check ;
+	}
 	
 }

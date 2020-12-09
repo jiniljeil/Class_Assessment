@@ -3,6 +3,7 @@ package com.client.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,10 +54,13 @@ public class ClassDAO {
 				one.setOthers(rs.getString("others"));
 				list.add(one);
 			}
-			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
 		return list;
 	}
 	
@@ -78,6 +82,10 @@ public class ClassDAO {
 			result = stmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 		return result; 
 	}
@@ -93,6 +101,10 @@ public class ClassDAO {
 			stmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 	}
 	
@@ -106,6 +118,10 @@ public class ClassDAO {
 			stmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
 		}
 	}
 	

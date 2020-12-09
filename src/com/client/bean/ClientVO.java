@@ -5,6 +5,8 @@ public class ClientVO {
 	private String client_pw;
 	private String nickname; 
 	private int numofclass;
+	private String harku; 
+	private int grade; 
 	
 	public String getClient_id() {
 		return client_id;
@@ -29,5 +31,17 @@ public class ClientVO {
 	}
 	public void setNumofclass(int numofclass) {
 		this.numofclass = numofclass;
+	}
+	public String getHarku() {
+		return harku;
+	}
+	public void setHarku(String harku) {
+		this.harku = harku;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
 	} 
 }

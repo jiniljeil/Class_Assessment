@@ -42,7 +42,7 @@
 		response.sendRedirect("list.jsp");
 		return;
 	}else{
-		out.println("<script>alert('아이디 또는 비밀번호가 잘못되었습니다.'); </script>");
+		out.write("<script>alert('아이디 또는 비밀번호가 잘못되었습니다.'); </script>");
 		response.sendRedirect("index.jsp");
 		return;
 	}
