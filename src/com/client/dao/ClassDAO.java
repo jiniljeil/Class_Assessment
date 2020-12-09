@@ -8,7 +8,6 @@ import java.util.Date;
 
 import com.client.bean.ClassVO;
 import com.client.common.JDBCUtil;
-import com.member.bean.MemberVO;
 
 public class ClassDAO {
 	/*
@@ -69,7 +68,7 @@ public class ClassDAO {
 			stmt =  conn.prepareStatement(C_INSERT);
 			stmt.setString(1, cv.getClassName());
 			stmt.setString(2, cv.getClassEvaluation());
-			stmt.setDate(3, cv.getCurrTime());
+//			stmt.setDate(3, cv.getCurrTime());
 			stmt.setInt(4,  0);
 			stmt.setFloat(5, cv.getPoint());
 			stmt.setString(6, cv.getHakbu());
