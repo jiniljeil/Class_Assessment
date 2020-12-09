@@ -18,7 +18,10 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide w3-center"><b>Honey Lecture</b></h3>
-    <div class="w3-center"><img src="./img/mainimg.png" style="width:50%"></div>
+    <a href="#" class="w3-button w3-center">
+		<img src="./img/mainimg.png" style="width:60%">
+	</a>
+    
   </div>
   
   <div class="w3-container w3-display-container w3-padding-8">
@@ -74,12 +77,107 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">Jeans</p>
+    <p class="w3-left">내가 준 평점</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
     </p>
   </header>
+  
+    <!-- Product grid -->
+  <div class="w3-row w3-grayscale w3-padding">
+  
+    <div class="w3-col l6 s6 w3-padding">
+      <div class="w3-container w3-white w3-margin-bottom" style="border-radius:20px">
+      	<div class="w3-container w3-padding">
+      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      	</div>
+      	<div class="w3-container">
+      		
+      		<span class="w3-right">김기호 교수</span>
+      	</div>
+      	<div class="w3-container w3-row-padding">
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<span class="w3-right">별점</span>
+   			</div>
+      		<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/emptystar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+   			<div class="w3-col w3-right s1" style="padding:0px">
+   				<img src="./img/fullstar.png" style="width:100%">
+   			</div>
+      	</div>
+      	<div class="w3-container w3-padding">
+      		<span class="w3-center">This class is nice!</span>
+      	</div>
+      </div>
+      <div class="w3-container w3-yellow w3-margin-bottom" style="border-radius:20px">
+      	<div class="w3-container w3-padding">
+      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      	</div>
+      	<div class="w3-container">
+      		<span class="w3-right">김기호 교수</span>
+      	</div>
+      	<div class="w3-container">
+      		<span class="w3-right">별점</span>
+      	</div>
+      	<div class="w3-container w3-padding">
+      		<span class="w3-center">This class is nice!</span>
+      	</div>
+      </div>
+    </div>
+
+
+    <div class="w3-col l6 s6 w3-padding">
+    
+      <div class="w3-container w3-yellow w3-margin-bottom" style="border-radius:20px">
+      	<div class="w3-container w3-padding">
+      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      	</div>
+      	<div class="w3-container">
+      		<span class="w3-right">김기호 교수</span>
+      	</div>
+      	<div class="w3-container">
+      		<span class="w3-right">별점</span>
+      	</div>
+      	<div class="w3-container w3-padding">
+      		<span class="w3-center">This class is nice!</span>
+      	</div>
+      </div>
+      
+       <div class="w3-container w3-yellow w3-margin-bottom" style="border-radius:20px">
+      	<div class="w3-container w3-padding">
+      		<span class="w3-left" style="font-size:30px">기독교와 비교종교<br></span>
+      	</div>
+      	<div class="w3-container">
+      		<span class="w3-right">김기호 교수</span>
+      	</div>
+      	<div class="w3-container">
+      		<span class="w3-right">별점</span>
+      	</div>
+      	<div class="w3-container w3-padding">
+      		<span class="w3-center">This class is nice!</span>
+      	</div>
+      </div>
+      
+    </div>
+
+  </div>
+  
+
+
+  <!-- End page content -->
+</div>
+
 
 <script>
 // Accordion 
