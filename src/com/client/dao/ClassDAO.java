@@ -27,7 +27,7 @@ public class ClassDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	private final String C_INSERT = "insert into from Class (className, classEvaluation, listenTime, good, point, hakbu, subject, professor, others) values (?,?,?,?,?,?,?,?,?) ";
+	private final String C_INSERT = "insert into from Class (userID, className, classEvaluation, listenTime, good, point, hakbu, professor, others) values (?,?,?,?,?,?,?,?,?) ";
 	private final String C_DELETE = "delete from Class where userID=? and className=?";
 	private final String C_UPDATE = "update Class set classEvaluation=? where className=?";
 	private final String C_GOOD = "update Class set good=? where className=? and classEvaluation=?";
@@ -47,9 +47,8 @@ public class ClassDAO {
 				one.setClassEvaluation(rs.getString("classEvaluation"));
 				one.setListenTime(rs.getString("listenTime"));
 				one.setGood(rs.getInt("good"));
-				one.setPoint(rs.getFloat("point"));
+				one.setPoint(rs.getInt("point"));
 				one.setHakbu(rs.getString("hakbu"));
-				one.setSubject(rs.getString("subject"));
 				one.setProfessor(rs.getString("professor"));
 				one.setOthers(rs.getString("others"));
 				list.add(one);
@@ -70,13 +69,13 @@ public class ClassDAO {
 		conn = JDBCUtil.getConnection();
 		try {
 			stmt =  conn.prepareStatement(C_INSERT);
-			stmt.setString(1, cv.getClassName());
-			stmt.setString(2, cv.getClassEvaluation());
-			stmt.setString(3, cv.getListenTime());
-			stmt.setInt(4,  0);
-			stmt.setFloat(5, cv.getPoint());
-			stmt.setString(6, cv.getHakbu());
-			stmt.setString(7, cv.getSubject());
+			stmt.setString(1, cv.getUserID());
+			stmt.setString(2, cv.getClassName());
+			stmt.setString(3, cv.getClassEvaluation());
+			stmt.setString(4, cv.getListenTime());
+			stmt.setInt(5,  0);
+			stmt.setFloat(6, cv.getPoint());
+			stmt.setString(7, cv.getHakbu());
 			stmt.setString(8,  cv.getProfessor());
 			stmt.setString(9, cv.getOthers());
 			result = stmt.executeUpdate();
