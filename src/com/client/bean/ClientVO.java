@@ -5,7 +5,7 @@ public class ClientVO {
 	private String client_pw;
 	private String nickname; 
 	private int numofclass;
-	private String harku; 
+	private String hakbu; 
 	private int grade; 
 	
 	public String getClient_id() {
@@ -32,11 +32,11 @@ public class ClientVO {
 	public void setNumofclass(int numofclass) {
 		this.numofclass = numofclass;
 	}
-	public String getHarku() {
-		return harku;
+	public String getHakbu() {
+		return hakbu;
 	}
-	public void setHarku(String harku) {
-		this.harku = harku;
+	public void setHakbu(String hakbu) {
+		this.hakbu = hakbu;
 	}
 	public int getGrade() {
 		return grade;
