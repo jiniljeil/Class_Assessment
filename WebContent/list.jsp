@@ -13,10 +13,21 @@
 	pageContext.getSession().setAttribute("userPW", userPW);
 	
 	ClassDAO classDAO = new ClassDAO();
-	List<ClassVO> listEven = classDAO.getListEven();
-	List<ClassVO> listOdd = classDAO.getListOdd(); 
-	request.setAttribute("listEven",listEven);
-	request.setAttribute("listOdd",listOdd);
+	
+	String lecture = request.getParameter("lectureName");
+	
+	if( lecture != null) { 
+		List<ClassVO> listEven = classDAO.getListSearchEven(lecture);
+		List<ClassVO> listOdd = classDAO.getListSearchOdd(lecture); 
+		request.setAttribute("listEven",listEven);
+		request.setAttribute("listOdd",listOdd);
+	}else{
+		List<ClassVO> listEven = classDAO.getListEven();
+		List<ClassVO> listOdd = classDAO.getListOdd(); 
+		request.setAttribute("listEven",listEven);
+		request.setAttribute("listOdd",listOdd);
+	}
+	
 %>
 
 <!DOCTYPE html>
@@ -39,16 +50,18 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide w3-center"><b>Honey Lecture</b></h3>
-    <a href="#" class="w3-button w3-center">
-		<img src="./img/mainimg.png" onclick="location.href='list.jsp'" style="width:60%">
+    <a href="list.jsp" class="w3-button w3-center">
+		<img src="./img/mainimg.png" style="width:60%">
 	</a>
     
   </div>
   
-  <div class="w3-container w3-display-container w3-padding-8">
-  	<p><input class="w3-input w3-border" type="text" placeholder="Search" style="width:100%"></p>
-  	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%">Search</button>
-  </div>
+  <form action="list.jsp" method="post">
+	  <div class="w3-container w3-display-container w3-padding-8">
+	  	<p><input class="w3-input w3-border" type="text" placeholder="Search" name="lectureName" style="width:100%"></p>
+	  	<input type="submit" class="w3-button w3-yellow w3-margin-bottom" style="width:100%" value="Search"/>
+	  </div>
+  </form>
   
    <div class="w3-container w3-display-container w3-padding-8">
    	<div class="w3-row-padding">
@@ -112,7 +125,13 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       <c:forEach items="${listEven}" var="u">
 	      <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
 	      	 <div class="w3-container w3-padding">
-	      		<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
+	      	 	<a href="view.jsp?id=${u.getUserID()}&ln=${u.getClassName()}" class="w3-button w3-left" style="padding:0px">
+					<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
+				</a>
+	      		<span class="w3-right" style="font-size:12px; margin-top:5px;">5</span>
+	      		<a href="#" class="w3-button w3-right" style="width:30px; height:30px; padding:0px; margin-top:5px;">
+					<img class="w3-right" src="./img/good.png" style="width:30px; height:30px">
+				</a>
 	      	 </div>
 	      	 <div class="w3-container">
 	      		
@@ -120,9 +139,23 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	 </div>
 	      	 <div class="w3-container w3-row-padding">
 	      		<div class="w3-col w3-right s1" style="padding:0px">
-	   				<span class="w3-right">${u.getPoint()}</span>
+	   				<span class="w3-right" id="point_lecture1">${u.getPoint()}</span>
 	   			</div>
 	   			<!-- 별 수정 -->
+	   			<!-- <script>
+		   			function left_star(){
+		   				var result = "";
+		   				var point = document.getElementById('point_lecture1').value;
+		   				alert(point);
+		   				for(var i = parseInt(point); i < 5; i++){
+		   					document.write("<div class='w3-col w3-right s1' style='padding:0px'><img src='./img/emptystar.png' style='width:100%'></div>"));
+		   				}
+		   				for(var i = 0 ; i < parseInt(point); i++){
+		   					document.write("<div class='w3-col w3-right s1' style='padding:0px'><img src='./img/fullstar.png' style='width:100%'></div>");
+		   				}
+		   			}
+	   				left_star();
+	   			</script> -->
 	      		<div class="w3-col w3-right s1" style="padding:0px">
 	   				<img src="./img/emptystar.png" style="width:100%">
 	   			</div>
@@ -137,7 +170,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	   			</div>
 	   			<div class="w3-col w3-right s1" style="padding:0px">
 	   				<img src="./img/fullstar.png" style="width:100%">
-	   			</div>
+	   			</div> 
 	      	</div>
 	      	<hr style="margin:10px"></hr>
 	      	<div class="w3-container w3-padding">
@@ -151,16 +184,25 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       <c:forEach items="${listOdd}" var="u">
       <div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       	<div class="w3-container w3-padding">
-      		<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
-      	</div>
+	      	 <a href="view.jsp?id=${u.getUserID()}&ln=${u.getClassName()}" class="w3-button w3-left" style="padding:0px">
+				<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
+			</a>
+	      	<span class="w3-right" style="font-size:12px; margin-top:5px;">5</span>
+	      	<a href="#" class="w3-button w3-right" style="width:30px; height:30px; padding:0px; margin-top:5px;">
+				<img class="w3-right" src="./img/good.png" style="width:30px; height:30px">
+			</a>
+	    </div>
       	<div class="w3-container">
       		
       		<span class="w3-right" style="font-size:20px">${u.getProfessor()}</span>
       	</div>
       	<div class="w3-container w3-row-padding">
       		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">${u.getPoint()}</span>
+   				<span class="w3-right" id="point_lecture2">${u.getPoint()}</span>
    			</div>
+   			<script>right_star();</script>
+   			
+   			
       		<div class="w3-col w3-right s1" style="padding:0px">
    				<img src="./img/emptystar.png" style="width:100%">
    			</div>
@@ -179,7 +221,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       	</div>
       	<hr style="margin:10px"></hr>
       	<div class="w3-container w3-padding">
-      		<span class="w3-center">This class is perfect!</span>
+      		<span class="w3-center">${u.getClassEvaluation()}</span>
       	</div>
       </div>
       </c:forEach>
@@ -217,6 +259,18 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
+
+function right_star(){
+	var result = "";
+	var point = document.getElementById('point_lecture2').value;
+	for(var i = parseInt(point); i < 5; i++){
+		document.write("<div class='w3-col w3-right s1' style='padding:0px'><img src='./img/emptystar.png' style='width:100%'></div>"));
+	}
+	for(var i = 0 ; i < parseInt(point); i++){
+		document.write("<div class='w3-col w3-right s1' style='padding:0px'><img src='./img/fullstar.png' style='width:100%'></div>");
+	}
+}
+
 </script>
 
 </body>

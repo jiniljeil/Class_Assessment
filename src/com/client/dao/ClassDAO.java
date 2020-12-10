@@ -33,6 +33,39 @@ public class ClassDAO {
 	private final String C_GOOD = "update Class set good=? where className=? and classEvaluation=?";
 	private final String C_SELECT = "select * from Class";
 	private final String C_SELECT_USER = "select * from Class where userID=?";
+	private final String C_SELECT_SEARCH = "select * from Class where className=?";
+	private final String C_SELECT_VIEW = "select * from Class where className=? and userID=?";
+	
+	public ClassVO getClass(String userID, String className) { 
+		ClassVO one = null; 
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT_VIEW);
+			stmt.setString(1, className );
+			stmt.setString(2, userID);
+			rs = stmt.executeQuery();
+			
+			if( rs.next()) {
+				one = new ClassVO(); 
+				one.setUserID(rs.getString("userID"));
+				one.setClassName(rs.getString("className"));
+				one.setClassEvaluation(rs.getString("classEvaluation"));
+				one.setListenTime(rs.getString("listenTime"));
+				one.setGood(rs.getInt("good"));
+				one.setPoint(rs.getInt("point"));
+				one.setHakbu(rs.getString("hakbu"));
+				one.setProfessor(rs.getString("professor"));
+				one.setOthers(rs.getString("others"));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return one; 
+	}
 	// 게시물 뷰 
 	public ArrayList<ClassVO> getList() { 
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
@@ -43,6 +76,7 @@ public class ClassDAO {
 			
 			while(rs.next()) {
 				ClassVO one = new ClassVO();
+				one.setUserID(rs.getString("userID"));
 				one.setClassName(rs.getString("className"));
 				one.setClassEvaluation(rs.getString("classEvaluation"));
 				one.setListenTime(rs.getString("listenTime"));
@@ -73,6 +107,7 @@ public class ClassDAO {
 			while(rs.next()) {
 				if(count % 2 == 0) {
 					ClassVO one = new ClassVO();
+					one.setUserID(rs.getString("userID"));
 					one.setClassName(rs.getString("className"));
 					one.setClassEvaluation(rs.getString("classEvaluation"));
 					one.setListenTime(rs.getString("listenTime"));
@@ -105,6 +140,7 @@ public class ClassDAO {
 			while(rs.next()) {
 				if( count % 2 != 0) {
 					ClassVO one = new ClassVO();
+					one.setUserID(rs.getString("userID"));
 					one.setClassName(rs.getString("className"));
 					one.setClassEvaluation(rs.getString("classEvaluation"));
 					one.setListenTime(rs.getString("listenTime"));
@@ -138,6 +174,7 @@ public class ClassDAO {
 			while(rs.next()) {
 				if( count % 2 == 0 ) {
 					ClassVO one = new ClassVO();
+					one.setUserID(rs.getString("userID"));
 					one.setClassName(rs.getString("className"));
 					one.setClassEvaluation(rs.getString("classEvaluation"));
 					one.setListenTime(rs.getString("listenTime"));
@@ -171,6 +208,75 @@ public class ClassDAO {
 			while(rs.next()) {
 				if( count % 2 != 0) {
 					ClassVO one = new ClassVO();
+					one.setUserID(rs.getString("userID"));
+					one.setClassName(rs.getString("className"));
+					one.setClassEvaluation(rs.getString("classEvaluation"));
+					one.setListenTime(rs.getString("listenTime"));
+					one.setGood(rs.getInt("good"));
+					one.setPoint(rs.getInt("point"));
+					one.setHakbu(rs.getString("hakbu"));
+					one.setProfessor(rs.getString("professor"));
+					one.setOthers(rs.getString("others"));
+					list.add(one);
+				}
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return list;
+	}
+	
+	public ArrayList<ClassVO> getListSearchEven(String lectureName) { 
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT_SEARCH);
+			stmt.setString(1, lectureName);
+			rs = stmt.executeQuery();
+			int count = 0; 
+			while(rs.next()) {
+				if( count % 2 == 0 ) {
+					ClassVO one = new ClassVO();
+					one.setUserID(rs.getString("userID"));
+					one.setClassName(rs.getString("className"));
+					one.setClassEvaluation(rs.getString("classEvaluation"));
+					one.setListenTime(rs.getString("listenTime"));
+					one.setGood(rs.getInt("good"));
+					one.setPoint(rs.getInt("point"));
+					one.setHakbu(rs.getString("hakbu"));
+					one.setProfessor(rs.getString("professor"));
+					one.setOthers(rs.getString("others"));
+					list.add(one);
+				}
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return list;
+	}
+	
+	public ArrayList<ClassVO> getListSearchOdd(String lectureName) { 
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT_SEARCH);
+			stmt.setString(1, lectureName);
+			rs = stmt.executeQuery();
+			int count = 0 ;
+			while(rs.next()) {
+				if( count % 2 != 0) {
+					ClassVO one = new ClassVO();
+					one.setUserID(rs.getString("userID"));
 					one.setClassName(rs.getString("className"));
 					one.setClassEvaluation(rs.getString("classEvaluation"));
 					one.setListenTime(rs.getString("listenTime"));
@@ -230,7 +336,6 @@ public class ClassDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}
@@ -247,7 +352,6 @@ public class ClassDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}
