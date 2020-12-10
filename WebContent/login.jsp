@@ -3,6 +3,7 @@
 <%@ page import="java.sql.Connection, java.sql.PreparedStatement, java.sql.ResultSet" %>
 <%@ page import="com.client.common.JDBCUtil, com.client.bean.ClientVO"%>
 <% 
+	request.setCharacterEncoding("utf-8");
 	String userID = request.getParameter("userid");
 	String userPW = request.getParameter("userpw");
 	String M_LIST = "select * from client where client_id=? and client_pw=?";

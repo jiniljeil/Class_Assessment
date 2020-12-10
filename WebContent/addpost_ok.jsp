@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="com.client.dao.ClassDAO,com.client.dao.ClientDAO, com.client.bean.ClientVO, com.client.bean.ClassVO" %>
 <%
+	request.setCharacterEncoding("utf-8");
 	String userid = pageContext.getSession().getAttribute("userID").toString();
 	String userpw = pageContext.getSession().getAttribute("userPW").toString();
 	/* userID, className, classEvaluation, listenTime, good, point, hakbu, subject, professor, others */
@@ -9,8 +10,8 @@
 	String className = request.getParameter("className");
 	String professor = request.getParameter("professor");
 	String listenTime = request.getParameter("listenTime");
-	String totalEvaluation = request.getParameter("");
-	String others = request.getParameter("row1") + request.getParameter("row2") + request.getParameter("row3") + request.getParameter("row4") ;
+	String totalEvaluation = request.getParameter("total");
+	String others = request.getParameter("row1") + request.getParameter("row2") + request.getParameter("row3") + request.getParameter("row4")+request.getParameter("total"); ;
 	String classEvaluation = request.getParameter("classEvaluation");
 	
 	ClassDAO dao = new ClassDAO(); 
@@ -34,6 +35,7 @@
 		msg = "게시물 업로드 실패";
 	}else{
 		msg = "게시물 업로드 성공!"; 
+		
 	}
 	
 	pageContext.setAttribute("userID", userid);

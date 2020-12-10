@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <%@ page import="com.client.dao.ClientDAO, com.client.bean.ClientVO" %>
 <% 
-	
+	request.setCharacterEncoding("utf-8");
 	ClientDAO dao = new ClientDAO() ; 
 	ClientVO vo = new ClientVO(); 
 	
@@ -17,7 +17,7 @@
 	vo.setClient_pw(password);
 	vo.setNumofclass(0);
 	vo.setNickname(nickname);
-	vo.setHarku(hakbu);
+	vo.setHakbu(hakbu);
 	vo.setGrade(Integer.parseInt(grade));
 	
 	int result = dao.insertClient(vo);

@@ -27,12 +27,12 @@ public class ClassDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	private final String C_INSERT = "insert into from Class (userID, className, classEvaluation, listenTime, good, point, hakbu, professor, others) values (?,?,?,?,?,?,?,?,?) ";
+	private final String C_INSERT = "insert into Class (userID, className, classEvaluation, listenTime, good, point, hakbu, professor, others) values (?,?,?,?,?,?,?,?,?) ";
 	private final String C_DELETE = "delete from Class where userID=? and className=?";
 	private final String C_UPDATE = "update Class set classEvaluation=? where className=?";
 	private final String C_GOOD = "update Class set good=? where className=? and classEvaluation=?";
 	private final String C_SELECT = "select * from Class";
-	
+	private final String C_SELECT_USER = "select * from Class where userID=?";
 	// 게시물 뷰 
 	public ArrayList<ClassVO> getList() { 
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
@@ -63,6 +63,136 @@ public class ClassDAO {
 		return list;
 	}
 	
+	public ArrayList<ClassVO> getListEven() { 
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT);
+			rs = stmt.executeQuery();
+			int count = 0 ;
+			while(rs.next()) {
+				if(count % 2 == 0) {
+					ClassVO one = new ClassVO();
+					one.setClassName(rs.getString("className"));
+					one.setClassEvaluation(rs.getString("classEvaluation"));
+					one.setListenTime(rs.getString("listenTime"));
+					one.setGood(rs.getInt("good"));
+					one.setPoint(rs.getInt("point"));
+					one.setHakbu(rs.getString("hakbu"));
+					one.setProfessor(rs.getString("professor"));
+					one.setOthers(rs.getString("others"));
+					list.add(one);
+				}
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return list;
+	}
+	
+	public ArrayList<ClassVO> getListOdd() { 
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT);
+			rs = stmt.executeQuery();
+			int count = 0; 
+			while(rs.next()) {
+				if( count % 2 != 0) {
+					ClassVO one = new ClassVO();
+					one.setClassName(rs.getString("className"));
+					one.setClassEvaluation(rs.getString("classEvaluation"));
+					one.setListenTime(rs.getString("listenTime"));
+					one.setGood(rs.getInt("good"));
+					one.setPoint(rs.getInt("point"));
+					one.setHakbu(rs.getString("hakbu"));
+					one.setProfessor(rs.getString("professor"));
+					one.setOthers(rs.getString("others"));
+					list.add(one);
+				}
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return list;
+	}
+	
+	public ArrayList<ClassVO> getListUserEven(String userID) { 
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT_USER);
+			stmt.setString(1, userID);
+			rs = stmt.executeQuery();
+			int count = 0; 
+			while(rs.next()) {
+				if( count % 2 == 0 ) {
+					ClassVO one = new ClassVO();
+					one.setClassName(rs.getString("className"));
+					one.setClassEvaluation(rs.getString("classEvaluation"));
+					one.setListenTime(rs.getString("listenTime"));
+					one.setGood(rs.getInt("good"));
+					one.setPoint(rs.getInt("point"));
+					one.setHakbu(rs.getString("hakbu"));
+					one.setProfessor(rs.getString("professor"));
+					one.setOthers(rs.getString("others"));
+					list.add(one);
+				}
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return list;
+	}
+	
+	public ArrayList<ClassVO> getListUserOdd(String userID) { 
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_SELECT_USER);
+			stmt.setString(1, userID);
+			rs = stmt.executeQuery();
+			int count = 0 ;
+			while(rs.next()) {
+				if( count % 2 != 0) {
+					ClassVO one = new ClassVO();
+					one.setClassName(rs.getString("className"));
+					one.setClassEvaluation(rs.getString("classEvaluation"));
+					one.setListenTime(rs.getString("listenTime"));
+					one.setGood(rs.getInt("good"));
+					one.setPoint(rs.getInt("point"));
+					one.setHakbu(rs.getString("hakbu"));
+					one.setProfessor(rs.getString("professor"));
+					one.setOthers(rs.getString("others"));
+					list.add(one);
+				}
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(SQLException s) {}
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return list;
+	}
+	
 	// 게시물 생성
 	public int insertClass(ClassVO cv) {
 		int result = 0 ; 
@@ -82,7 +212,6 @@ public class ClassDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {rs.close();}catch(SQLException s) {}
 			try {stmt.close();}catch(SQLException s) {}
 			try {conn.close();}catch(SQLException s) {}
 		}

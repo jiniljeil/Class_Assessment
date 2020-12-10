@@ -13,8 +13,8 @@
 	pageContext.getSession().setAttribute("userPW", userPW);
 	
 	ClassDAO classDAO = new ClassDAO();
-	List<ClassVO> listEven = classDAO.getListEven();
-	List<ClassVO> listOdd = classDAO.getListOdd(); 
+	List<ClassVO> listEven = classDAO.getListUserEven(vo.getClient_id());
+	List<ClassVO> listOdd = classDAO.getListUserOdd(vo.getClient_id()); 
 	request.setAttribute("listEven",listEven);
 	request.setAttribute("listOdd",listOdd);
 %>
@@ -40,7 +40,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide w3-center"><b>Honey Lecture</b></h3>
     <a href="#" class="w3-button w3-center">
-		<img src="./img/mainimg.png" onclick="location.href='list.jsp'" style="width:60%">
+		<img src="./img/mainimg.png" style="width:60%">
 	</a>
     
   </div>
@@ -183,8 +183,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       	</div>
       </div>
       </c:forEach>
-      
-    </div>
+      </div>
   </div>
   
 

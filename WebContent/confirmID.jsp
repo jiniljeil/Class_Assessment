@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="com.client.dao.ClientDAO"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String userid = request.getParameter("userid");
 	ClientDAO dao = new ClientDAO() ;
 	boolean result = dao.confirmID(userid);
