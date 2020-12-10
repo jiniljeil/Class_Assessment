@@ -35,72 +35,55 @@ select{
 	height:40px;
 }
 	input[type="submit"]{
-		width: 120px; 
-		height: 48px;
-		font-size: 15pt;
-		background-color: #A0A6AB;
-		border-radius:5px;
-		color:white;
-		margin-top : 15px;
-		margin-bottom : 15px;
-		margin-left : auto;
-		margin-right : auto;
+
 	}
 </style>
 <body class="w3-content" style="max-width:1200px">
 <title>Insert title here</title>
 </head>
 <body>
-<!-- Sidebar/menu -->
+<!— Sidebar/menu —>
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
+  <div class="w3-container w3-display-container w3-padding-16" style="margin-bottom:0px">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide w3-center"><b>Honey Lecture</b></h3>
-    <a href="#" class="w3-button w3-center">
+    <a href="list.jsp" class="w3-button w3-center">
 		<img src="./img/mainimg.png" style="width:60%">
 	</a>
-    
   </div>
   
-  <div class="w3-container w3-display-container w3-padding-8">
-  	<p><input class="w3-input w3-border" type="text" placeholder="Search" style="width:100%"></p>
-  	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%">Search</button>
-  </div>
+  <form action="list.jsp" method="post">
+	  <div class="w3-container w3-display-container w3-padding-8">
+	  	<p><input class="w3-input w3-border" type="text" placeholder="Search" name="lectureName" style="width:100%"></p>
+	  	<input type="submit" class="w3-button w3-yellow w3-margin-bottom" style="width:100%" value="Search"/>
+	  </div>
+  </form>
   
-   <div class="w3-container w3-display-container w3-padding-8">
+   <div class="w3-container w3-display-container w3-padding-8" style="margin-top:30px; margin-bottom:30px">
    	<div class="w3-row-padding">
    		<div class="w3-col s6">
    			<img src="./img/person.png" style="width:100%">
    		</div>
    		<div class="w3-col s6 w3-justify">   	
-   			<h3 class="w3-wide w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:6pt"><%=vo.getHakbu() %></h6>
+   			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
+   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
   
   <div class="w3-padding-16 w3-large w3-text-grey" style="font-weight:bold">
-  	<a href="addpost.jsp" class="w3-bar-item w3-button">강의 평가 작성하기</a>
-    <a href="#" class="w3-bar-item w3-button">내가 쓴 강의 평가</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      별점 확인 <i class="fa fa-caret-down"></i>
-    </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>내가 준 평점</a>
-      <a href="#" class="w3-bar-item w3-button">남이 준 평점</a>
-      <a href="#" class="w3-bar-item w3-button">별점 순위 확인</a>
-    </div>
+  	<a href="list.jsp" class="w3-bar-item w3-button ">전체 평가</a>
+  	<a href="mylist.jsp" class="w3-bar-item w3-button ">내가 쓴 강의 평가</a>
+  	<a href="addpost.jsp" class="w3-bar-item w3-button w3-light-grey">강의 평가 작성하기</a>
     <a href="#" class="w3-bar-item w3-button">시간표 등록</a>
   </div>
-  
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+   
+  <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding">Madeby</a>
 </nav>
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+  <div class="w3-bar-item w3-padding-24">Honey Lecture</div>
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
 </header>
 
@@ -115,7 +98,7 @@ select{
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">평점 주기</p>
+    <p class="w3-left">강의 평가 작성하기</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
@@ -191,7 +174,16 @@ select{
 		<h3  class="w3-center">강의 평가</h3>
 		<textarea rows="5px" cols="58%" name="classEvaluation" placeholder="강의 버전"></textarea>
 		
-		<input class="w3-button w3-center" type="submit" value="작성하기"/> 
+		<input class="w3-button w3-center" style="		width: 120px; 
+		height: 48px;
+		font-size: 15pt;
+		background-color: #A0A6AB;
+		border-radius:5px;
+		color:white;
+		margin-top : 15px;
+		margin-bottom : 15px;
+		margin-left : auto;
+		margin-right : auto;" type="submit" value="작성하기"/> 
 		
 	</form>
 	
