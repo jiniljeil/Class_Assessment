@@ -13,7 +13,58 @@
 	String className = request.getParameter("ln_ed");
 	
 	ClassDAO class_dao = new ClassDAO(); 
-	ClassVO class_vo = class_dao.getClass(className, userid);
+	ClassVO class_vo = class_dao.getClass(userid, className);
+	
+	String others = class_vo.getOthers();
+	String[] row = new String[5];
+
+	if(((others.charAt(0)) == '1')){
+		row[0] = "많음";
+	}else if(((others.charAt(0)) == '2')){
+		row[0] = "보통";
+	}else if(((others.charAt(0)) == '3')){
+		row[0] = "적음"; 
+	}
+	
+	if(((others.charAt(1)) == '1')){
+		row[1] = "많음";
+	}else if(((others.charAt(1)) == '2')){
+		row[1] = "보통";
+	}else if(((others.charAt(1)) == '3')){
+		row[1] = "적음"; 
+	}
+	
+	if(((others.charAt(2)) == '1')){
+		row[2] = "학점왕";
+	}else if(((others.charAt(2)) == '2')){
+		row[2] = "비율에 맞춰";
+	}else if(((others.charAt(2)) == '3')){
+		row[2] = "FM"; 
+	}else if(((others.charAt(2)) == '4')){
+		row[2] = "F폭격기"; 
+	}
+	
+	if(((others.charAt(3)) == '1')){
+		row[3] = "1번";
+	}else if(((others.charAt(3)) == '2')){
+		row[3] = "2번";
+	}else if(((others.charAt(3)) == '3')){
+		row[3] = "3번"; 
+	}else if(((others.charAt(3)) == '4')){
+		row[3] = "4번"; 
+	}
+	
+	if(((others.charAt(4)) == '1')){
+		row[4] = "1";
+	}else if(((others.charAt(4)) == '2')){
+		row[4] = "2점";
+	}else if(((others.charAt(4)) == '3')){
+		row[4] = "3점"; 
+	}else if(((others.charAt(4)) == '4')){
+		row[4] = "4점"; 
+	}else if(((others.charAt(4)) == '5')){
+		row[4] = "5점"; 
+	}
 	
 	pageContext.setAttribute("userID", userid);
 	pageContext.setAttribute("userPW", userpw);
@@ -131,7 +182,7 @@ select{
       <!-- Product grid -->
   <div class="w3-row w3-grayscale w3-padding w3-center" style="background-color:#FFE1A2; width:60%; margin-left:auto; margin-right:auto; margin-bottom:50px">
 
-	<form action="edit_ok.jsp" method="post">
+	<form action="edit_ok.jsp?cn=<%=class_vo.getClassName()%>" method="post">
 		<h3 class="w3-wide w3-center">과목</h3>
 		<div class="w3-container" style="padding-left:0px; padding-right:0px">
 		<label class="w3-input w3-border w3-left classinput"><%=class_vo.getClassName()%></label>
@@ -143,6 +194,7 @@ select{
 
 		<h3 class="w3-center">수강한 학기</h3>
 		<select class="w3-container" name="listenTime">
+			<option selected value="<%=class_vo.getListenTime()%>"><%=class_vo.getListenTime() %></option>
 			<option value="2020년 1학기">2020년 1학기</option>
 			<option value="2020년 2학기">2020년 2학기</option>
 			<option value="2019년 1학기">2019년 1학기</option>
@@ -155,21 +207,21 @@ select{
 
 		<h6 class="w3-left">과제</h6> 
 		<select class="w3-container" name="row1">
-			<option selected value="전체">-- 과제 선택 --</option>
+			<option selected value="<%=others.charAt(0)%>"><%=row[0] %></option>
 			<option value="1">많음</option>
 			<option value="2">보통</option>
 			<option value="3">적음</option>
 		</select>
 		<h6 class="w3-left">팀플</h6> 
 		<select class="w3-container" name="row2">
-			<option selected value="전체">-- 팀플 선택 --</option>
+			<option selected value="<%=others.charAt(1)%>"><%=row[1] %></option>
 			<option value="1">많음</option>
 			<option value="2">보통</option>
 			<option value="3">적음</option>
 		</select>
 		<h6 class="w3-left">학점 비율</h6> 
 		<select class="w3-container" name="row3">
-			<option selected value="전체">-- 학점 비율 --</option>
+			<option selected value="<%=others.charAt(2)%>"><%=row[2] %></option>
 			<option value="1">학점왕</option>
 			<option value="2">비율에 맞춰</option>
 			<option value="3">FM</option>
@@ -177,7 +229,7 @@ select{
 		</select>
 		<h6 class="w3-left">시험 횟수</h6> 
 		<select class="w3-container" name="row4">
-			<option selected value="전체">-- 시험 횟수 --</option>
+			<option selected value="<%=others.charAt(3)%>"><%=row[3] %></option>
 			<option value="1">1번</option>
 			<option value="2">2번</option>
 			<option value="3">3번</option>
@@ -186,7 +238,7 @@ select{
 
 		<h3  class="w3-center">총평</h3>
 		<select class="w3-container" name="total">
-			<option selected value="전체">-- 별점은? --</option>
+			<option selected value="<%=others.charAt(4)%>"><%=row[4] %></option>
 			<option value="1">1점</option>
 			<option value="2">2점</option>
 			<option value="3">3점</option>

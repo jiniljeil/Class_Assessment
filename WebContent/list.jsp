@@ -118,7 +118,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	 	<a href="view.jsp?id=${u.getUserID()}&ln=${u.getClassName()}" class="w3-button w3-left" style="padding:0px">
 					<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
 				</a>
-	      		<span class="w3-right" style="font-size:12px; margin-top:5px;">5</span>
+	      		<span class="w3-right" style="font-size:12px; margin-top:5px;">${u.getOthers().charAt(4)}</span>
 	      		<a href="#" class="w3-button w3-right" style="width:30px; height:30px; padding:0px; margin-top:5px;">
 					<img class="w3-right" src="./img/good.png" style="width:30px; height:30px">
 				</a>
@@ -177,7 +177,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	 <a href="view.jsp?id=${u.getUserID()}&ln=${u.getClassName()}" class="w3-button w3-left" style="padding:0px">
 				<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
 			</a>
-	      	<span class="w3-right" style="font-size:12px; margin-top:5px;">5</span>
+	      	<span class="w3-right" style="font-size:12px; margin-top:5px;">${u.getOthers().charAt(4)}</span>
 	      	<a href="#" class="w3-button w3-right" style="width:30px; height:30px; padding:0px; margin-top:5px;">
 				<img class="w3-right" src="./img/good.png" style="width:30px; height:30px">
 			</a>

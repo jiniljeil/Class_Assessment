@@ -67,8 +67,8 @@
 		row[4] = "5점"; 
 	}
 	
-	pageContext.getSession().setAttribute("userID", userID);
-	pageContext.getSession().setAttribute("userPW", userPW);
+	pageContext.setAttribute("userID", userID);
+	pageContext.setAttribute("userPW", userPW);
 %>
 
 <!DOCTYPE html>

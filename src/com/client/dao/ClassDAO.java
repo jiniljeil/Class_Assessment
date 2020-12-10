@@ -29,7 +29,7 @@ public class ClassDAO {
 	
 	private final String C_INSERT = "insert into Class (userID, className, classEvaluation, listenTime, good, point, hakbu, professor, others) values (?,?,?,?,?,?,?,?,?) ";
 	private final String C_DELETE = "delete from Class where userID=? and className=?";
-	private final String C_UPDATE = "update Class set classEvaluation=? where className=?";
+	private final String C_UPDATE = "update Class set classEvaluation=?, listenTime=?, others=?, point=? where className=? and userID=?";
 	private final String C_GOOD = "update Class set good=? where className=? and classEvaluation=?";
 	private final String C_SELECT = "select * from Class";
 	private final String C_SELECT_USER = "select * from Class where userID=?";
@@ -358,7 +358,24 @@ public class ClassDAO {
 	}
 	
 	// 게시물 수정 
-	public void reviseClass(ClassVO cv) {
-		
+	public int reviseClass(String classEvaluation, String listenTime, String others, int point, String className, String userID) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(C_UPDATE);
+			stmt.setString(1, classEvaluation);
+			stmt.setString(2, listenTime);
+			stmt.setString(3, others);
+			stmt.setInt(4, point);
+			stmt.setString(5, className);
+			stmt.setString(6, userID);
+			stmt.executeUpdate();
+			return 1; 
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return 0;
 	}
 }
