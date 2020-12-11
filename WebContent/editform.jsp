@@ -124,14 +124,14 @@ select{
   	<button type="button" class="w3-button w3-yellow w3-margin-bottom" style="width:100%">Search</button>
   </div>
   
-   <div class="w3-container w3-display-container w3-padding-8">
+   <div class="w3-container w3-display-container w3-padding-8" style="margin-top:30px; margin-bottom:30px">
    	<div class="w3-row-padding">
    		<div class="w3-col s6">
    			<img src="./img/person.png" style="width:100%">
    		</div>
    		<div class="w3-col s6 w3-justify">   	
-   			<h3 class="w3-wide w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:6pt"><%=vo.getHakbu() %></h6>
+   			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
+   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
@@ -149,7 +149,7 @@ select{
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+  <div class="w3-bar-item w3-padding-24 w3-wide">Honey Lecture</div>
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
 </header>
 
@@ -166,8 +166,7 @@ select{
   <header class="w3-container w3-xlarge">
     <p class="w3-left">평점 주기</p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
-      <i class="fa fa-search"></i>
+      <i class="fa fa-star-o"></i>
     </p>
   </header>
       <hr style="margin-top:0px; margin-bottom:20px; color:black; background-color:black;"></hr>
