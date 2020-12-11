@@ -103,10 +103,10 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <header class="w3-container w3-xlarge">
     <p class="w3-left">내가 준 평점</p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
-      <i class="fa fa-search"></i>
+      <i class="fa fa-star-o"></i>
     </p>
   </header>
+    <hr style="margin-top:0px; margin-bottom:20px; color:black; background-color:black;"></hr>
   
     <!— Product grid —>
   <div class="w3-row w3-grayscale w3-padding">
@@ -118,7 +118,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	 	<a href="view.jsp?id=${u.getUserID()}&ln=${u.getClassName()}" class="w3-button w3-left" style="padding:0px"> 
 					<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
 				</a>
-	      		<span class="w3-right" style="font-size:12px; margin-top:5px;">${u.getOthers().charAt(4)}</span>
+	      		<span class="w3-right" style="font-size:12px; margin-top:5px;">5</span>
 	      		<a href="#" class="w3-button w3-right" style="width:30px; height:30px; padding:0px; margin-top:5px;">
 					<img class="w3-right" src="./img/good.png" style="width:30px; height:30px">
 				</a>
@@ -129,8 +129,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      		<span class="w3-right" style="font-size:20px">${u.getProfessor()}</span>
 	      	 </div>
 	      	 <div class="w3-container w3-row-padding">
-	      		<div class="w3-col w3-right s1" style="padding:0px">
-	   				<span class="w3-right">${u.getPoint()}</span>
+	      		<div class="w3-col w3-right s1" style="padding:0px; width:5%">
+	   				<span class="w3-right" style="margin-top : 3px">${u.getPoint()}</span>
 	   			</div>
 	   			<!-- 별 수정 -->
 	      		<div class="w3-col w3-right s1" style="padding:0px">
@@ -149,10 +149,11 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	   				<img src="./img/fullstar.png" style="width:100%">
 	   			</div>
 	      	</div>
-	      	<hr style="margin:10px"></hr>
-	      	<div class="w3-container w3-padding">
-	      		<span class="w3-center">${u.getClassEvaluation()}</span>
-	      	</div>
+      		<hr style="margin-top:10px; margin-bottom:0px"></hr>
+      		<div class="w3-container w3-padding">
+      			<span class="w3-center">${u.getClassEvaluation()}</span>
+      		</div>
+      		<hr style="margin:0px"></hr>		
 	      	<a href="editform.jsp?ln_ed=${u.getClassName()}" class="w3-button w3-center" style="width:49%;">
 			<h5 style="color:blue; margin:0px">수정하기</h5>
 			</a>
@@ -170,7 +171,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	<a href="view.jsp?id=${u.getUserID()}&ln=${u.getClassName()}" class="w3-button w3-left" style="padding:0px">
 				<span class="w3-left" style="font-size:30px">${u.getClassName()}<br></span>
 			</a>
-	      	<span class="w3-right" style="font-size:12px; margin-top:5px;">${u.getOthers().charAt(4)}</span>
+	      	<span class="w3-right" style="font-size:12px; margin-top:5px;">5</span>
 	      	<a href="#" class="w3-button w3-right" style="width:30px; height:30px; padding:0px; margin-top:5px;">
 				<img class="w3-right" src="./img/good.png" style="width:30px; height:30px">
 			</a>
@@ -179,8 +180,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       		<span class="w3-right" style="font-size:20px">${u.getProfessor()}</span>
       	</div>
       	<div class="w3-container w3-row-padding">
-      		<div class="w3-col w3-right s1" style="padding:0px">
-   				<span class="w3-right">${u.getPoint()}</span>
+      		<div class="w3-col w3-right s1" style="padding:0px; width:5%">
+   				<span class="w3-right" style="margin-top : 3px">${u.getPoint()}</span>
    			</div>
       		<div class="w3-col w3-right s1" style="padding:0px">
    				<img src="./img/emptystar.png" style="width:100%">
@@ -198,10 +199,11 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    				<img src="./img/fullstar.png" style="width:100%">
    			</div>
       	</div>
-      	<hr style="margin:10px"></hr>
+      	<hr style="margin-top:10px; margin-bottom:0px"></hr>
       	<div class="w3-container w3-padding">
       		<span class="w3-center">${u.getClassEvaluation()}</span>
       	</div>
+      	<hr style="margin:0px"></hr>
       	<a href="editform.jsp?ln_ed=${u.getClassName()}" class="w3-button w3-center" style="width:49%;">
 			<h5 style="color:blue; margin:0px">수정하기</h5>
 		</a>

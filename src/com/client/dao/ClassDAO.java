@@ -378,4 +378,22 @@ public class ClassDAO {
 		}
 		return 0;
 	}
+	
+	public int goodAdd(ClassVO vo) {
+		try {
+			conn = JDBCUtil.getConnection(); 
+			stmt = conn.prepareStatement("update Class set good=? where className=? and userID=?");
+			stmt.setInt(1, vo.getGood()+1);
+			stmt.setString(2, vo.getClassName());
+			stmt.setString(3, vo.getUserID());
+			stmt.executeUpdate();
+			return 1;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {stmt.close();}catch(SQLException s) {}
+			try {conn.close();}catch(SQLException s) {}
+		}
+		return 0;
+	}
 }

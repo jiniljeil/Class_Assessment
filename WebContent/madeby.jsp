@@ -117,7 +117,7 @@ select{
       		<img src="./img/jinil.png" style="width:100%; margin-top:10px">
       	<hr style="margin:10px"></hr>
       	<div class="w3-container w3-padding">
-      		<h3 class="w3-center">전산 대표 미남 김진일</h3>
+      		<h3 class="w3-center">김진일</h3>
       	</div>
       	</div>
      </div>

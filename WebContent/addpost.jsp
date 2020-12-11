@@ -100,20 +100,21 @@ select{
   <header class="w3-container w3-xlarge">
     <p class="w3-left">강의 평가 작성하기</p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
-      <i class="fa fa-search"></i>
+      <i class="fa fa-star-o"></i>
     </p>
   </header>
+    <hr style="margin-top:0px; margin-bottom:20px; color:black; background-color:black;"></hr>
   
       <!-- Product grid -->
-  <div class="w3-row w3-grayscale w3-padding w3-center" style="background-color:#FFE1A2; width:60%; margin-left:auto; margin-right:auto; margin-bottom:50px">
+  <div class="w3-row w3-grayscale w3-padding w3-center" style="background-color:#FFE1A2; width:60%; margin-left:auto; margin-right:auto; margin-bottom:50px;border-radius:20px">
 
 	<form action="addpost_ok.jsp" method="post">
 		<h3 class="w3-wide w3-center">과목</h3>
 		<div class="w3-container" style="padding-left:0px; padding-right:0px">
 		<input class="w3-input w3-border w3-left classinput" type="text" name="className" placeholder="강의 이름"/>
 		<input class="w3-input w3-border w3-left classinput" type="text" name="professor" placeholder="교수님 이름"/> 
-		<div class="w3-center-align" style="margin-left: auto;margin-right: auto;display:inline-block;width:30%"><label class="w3-border w3-center" ><%= vo.getHakbu()%></label>
+		<div class="w3-center-align" style="margin-left: auto;margin-right: auto;margin-top:7px;display:inline-block;width:30%;">
+			<label class="w3-border w3-center" style="font-size:18px; border:0; outline:0"><%= vo.getHakbu()%></label>
 		</div>
 		
 		</div>
