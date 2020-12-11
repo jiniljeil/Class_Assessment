@@ -115,8 +115,7 @@ select{
     <h3 class="w3-wide w3-center"><b>Honey Lecture</b></h3>
     <a href="#" class="w3-button w3-center">
 		<img src="./img/mainimg.png" style="width:60%">
-	</a>
-    
+	</a> 
   </div>
   
   <div class="w3-container w3-display-container w3-padding-8">
