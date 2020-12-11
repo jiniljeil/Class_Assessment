@@ -127,7 +127,7 @@ public class ClientDAO {
 		boolean check = false; 
 		try{
 			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(C_SELECT);
+			stmt = conn.prepareStatement("select client_id from client where client_id=?");
 			stmt.setString(1, client_id);
 			rs = stmt.executeQuery();
 			if(rs.next()) {

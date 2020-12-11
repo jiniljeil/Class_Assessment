@@ -17,6 +17,7 @@
 		%>
 		<script>
 			alert('<%=msg%>');
+			location.href="join.jsp?user_id=<%=userid%>";
 		</script>
 	<%}
 %>

@@ -86,6 +86,13 @@
 		<form action="join_ok.jsp" method="post" onSubmit="return check()">
 			<h4>아이디</h4>
 			<input type="text" id="userid" placeholder="아이디를 입력해주세요." autofocus required/>
+			<% String userid = request.getParameter("user_id");
+				if( userid != null ){
+					%><script>
+						document.getElementById('userid').value='<%=userid%>';
+					</script><%
+				}
+			%>
 			<button type="button" class="btn btn-secondary" onclick="confirmid()">중복 확인</button><br>
 			<h4>비밀번호</h4>
 			<input type="password" onchange="checker()" name="password" id="password" placeholder="비밀번호를 입력해주세요." required/><br>
@@ -176,7 +183,7 @@
 				return; 
 			}
 			var url = "confirmID.jsp?userid="+document.getElementById('userid').value; 
-			open(url,"confirm","location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=5, height=2");
+			location.href=url;
 		}
 	    
 	</script>
