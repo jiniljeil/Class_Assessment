@@ -82,7 +82,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
    
   <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding">Madeby</a>
-  <a href="home.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">로그아웃</a>
+  <a href="home.jsp" class="w3-bar-item w3-button w3-padding">로그아웃</a>
 </nav>
 
 <!— Top menu on small screens —>

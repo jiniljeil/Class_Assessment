@@ -84,7 +84,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 h3{margin-top: 15px; margin-bottom:5px;}
 h6{margin-bottom: 5px;}
 .classinput{
-	width:35%;
+	width:33%;
 	display:inline-block;
 }
 select{
@@ -144,7 +144,7 @@ select{
   </div>
    
   <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding">Madeby</a>
-  <a href="home.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">로그아웃</a>
+  <a href="home.jsp" class="w3-bar-item w3-button w3-padding">로그아웃</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -170,17 +170,17 @@ select{
       <i class="fa fa-search"></i>
     </p>
   </header>
+      <hr style="margin-top:0px; margin-bottom:20px; color:black; background-color:black;"></hr>
   
       <!-- Product grid -->
-  <div class="w3-row w3-grayscale w3-padding w3-center" style="background-color:#FFE1A2; width:60%; margin-left:auto; margin-right:auto; margin-bottom:50px">
+  <div class="w3-row w3-grayscale w3-padding w3-center" style="background-color:#FFE1A2; width:60%; margin-left:auto; margin-right:auto; margin-bottom:50px; border-radius:20px">
 
 	<form action="edit_ok.jsp?cn=<%=class_vo.getClassName()%>" method="post">
 		<h3 class="w3-wide w3-center">과목</h3>
 		<div class="w3-container" style="padding-left:0px; padding-right:0px">
 		<label class="w3-input w3-border w3-left classinput"><%=class_vo.getClassName()%></label>
 		<label class="w3-input w3-border w3-left classinput"><%=class_vo.getProfessor() %></label>
-		<div class="w3-center-align" style="margin-left: auto;margin-right: auto;display:inline-block;width:30%"><label class="w3-border w3-center" ><%= vo.getHakbu()%></label>
-		</div>
+		<label class="w3-input w3-border w3-left classinput"><%=class_vo.getHakbu() %></label>
 		
 		</div>
 
