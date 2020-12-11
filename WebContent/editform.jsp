@@ -137,22 +137,14 @@ select{
   </div>
   
   <div class="w3-padding-16 w3-large w3-text-grey" style="font-weight:bold">
+  	<a href="list.jsp" class="w3-bar-item w3-button w3-light-grey">전체 평가</a>
+  	<a href="mylist.jsp" class="w3-bar-item w3-button">내가 쓴 강의 평가</a>
   	<a href="addpost.jsp" class="w3-bar-item w3-button">강의 평가 작성하기</a>
-    <a href="#" class="w3-bar-item w3-button">내가 쓴 강의 평가</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      별점 확인 <i class="fa fa-caret-down"></i>
-    </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>내가 준 평점</a>
-      <a href="#" class="w3-bar-item w3-button">남이 준 평점</a>
-      <a href="#" class="w3-bar-item w3-button">별점 순위 확인</a>
-    </div>
     <a href="#" class="w3-bar-item w3-button">시간표 등록</a>
   </div>
-  
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+   
+  <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding">Madeby</a>
+  <a href="home.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">로그아웃</a>
 </nav>
 
 <!-- Top menu on small screens -->

@@ -72,13 +72,14 @@ select{
   </div>
   
   <div class="w3-padding-16 w3-large w3-text-grey" style="font-weight:bold">
-  	<a href="list.jsp" class="w3-bar-item w3-button ">전체 평가</a>
-  	<a href="mylist.jsp" class="w3-bar-item w3-button ">내가 쓴 강의 평가</a>
-  	<a href="addpost.jsp" class="w3-bar-item w3-button w3-light-grey">강의 평가 작성하기</a>
+  	<a href="list.jsp" class="w3-bar-item w3-button w3-light-grey">전체 평가</a>
+  	<a href="mylist.jsp" class="w3-bar-item w3-button">내가 쓴 강의 평가</a>
+  	<a href="addpost.jsp" class="w3-bar-item w3-button">강의 평가 작성하기</a>
     <a href="#" class="w3-bar-item w3-button">시간표 등록</a>
   </div>
    
   <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding">Madeby</a>
+  <a href="home.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">로그아웃</a>
 </nav>
 
 <!-- Top menu on small screens -->

@@ -81,6 +81,7 @@ select{
   </div>
    
   <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">Madeby</a>
+  <a href="home.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">로그아웃</a>
 </nav>
 
 <!-- Top menu on small screens -->
