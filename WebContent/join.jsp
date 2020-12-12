@@ -85,7 +85,7 @@
 		<div class="innerbox">
 		<form action="join_ok.jsp" method="post" onSubmit="return check()">
 			<h4>아이디</h4>
-			<input type="text" id="userid" placeholder="아이디를 입력해주세요." autofocus required/>
+			<input type="text" id="userid" name="userid" placeholder="아이디를 입력해주세요." autofocus required/>
 			<% String userid = request.getParameter("user_id");
 				if( userid != null ){
 					%><script>
@@ -99,27 +99,27 @@
 			<h4>비밀번호 확인</h4>
 			<input type="password" onchange="checker()" id="cpassword" placeholder="비밀번호를 다시 입력해주세요." required/><br>
 			<h4>이름</h4>
-			<input type="text" placeholder="이름을 입력해주세요." required/><br>
+			<input type="text" name="nickname" placeholder="이름을 입력해주세요." required/><br>
 			<h4>학부</h4>
 			<select size="1" name="hakbu" >
              	<option selected value="전체">-- 학부 선택 --</option>
-				<option value="0001">글로벌리더십학부</option>
-                <option value="0007">창의융합교육원(자연과학)</option>
-                <option value="0008">창의융합교육원(인문사회)</option>
-                <option value="0009">창의융합교육원(공학)</option>
-                <option value="0011">국제어문학부</option>
-                <option value="0012">언론정보문화학부</option>
-                <option value="0013">커뮤니케이션학부</option>
-                <option value="0021">경영경제학부</option>
-                <option value="0022">법학부</option>
-                <option value="0024">상담심리사회복지학부</option>
-                <option value="0033">생명과학부</option>
-                <option value="0041">ICT창업학부</option>
-                <option value="0071">전산전자공학부</option>
-                <option value="0077">기계제어공학부</option>
-                <option value="0078">공간환경시스템공학부</option>
-                <option value="0079">콘텐츠융합디자인학부 </option>
-                <option value="0090">산업교육학부</option>
+				<option value="글로벌리더십학부">글로벌리더십학부</option>
+                <option value="창의융합교육원(자연과학)">창의융합교육원(자연과학)</option>
+                <option value="창의융합교육원(인문사회)">창의융합교육원(인문사회)</option>
+                <option value="창의융합교육원(공학)">창의융합교육원(공학)</option>
+                <option value="국제어문학부">국제어문학부</option>
+                <option value="언론정보문화학부">언론정보문화학부</option>
+                <option value="커뮤니케이션학부">커뮤니케이션학부</option>
+                <option value="경영경제학부">경영경제학부</option>
+                <option value="법학부">법학부</option>
+                <option value="상담심리사회복지학부">상담심리사회복지학부</option>
+                <option value="생명과학부">생명과학부</option>
+                <option value="ICT창업학부">ICT창업학부</option>
+                <option value="전산전자공학부">전산전자공학부</option>
+                <option value="기계제어공학부">기계제어공학부</option>
+                <option value="공간환경시스템공학부">공간환경시스템공학부</option>
+                <option value="콘텐츠융합디자인학부">콘텐츠융합디자인학부 </option>
+                <option value="산업교육학부">산업교육학부</option>
             </select>
 			<h4>학년</h4>
 			<select size="1" name="grade">
