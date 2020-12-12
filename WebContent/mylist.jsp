@@ -69,7 +69,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    		</div>
    		<div class="w3-col s6 w3-justify">   	
    			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
+   			<h6 class="w3-center" style="font-size:9pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
@@ -131,7 +131,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	 </div>
 	      	 <div class="w3-container w3-row-padding">
 	      		<div class="w3-col w3-right s1" style="padding:0px; width:5%">
-	   				<span class="w3-right" style="margin-top : 3px">${u.getPoint()}</span>
+	   				<span class="w3-right" style="margin-top : 4px">${u.getPoint()}</span>
 	   			</div>
 	   			<!-- 별 수정 -->
 	      		<div class="w3-col w3-right s1" style="padding:0px">
@@ -182,7 +182,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       	</div>
       	<div class="w3-container w3-row-padding">
       		<div class="w3-col w3-right s1" style="padding:0px; width:5%">
-   				<span class="w3-right" style="margin-top : 3px">${u.getPoint()}</span>
+   				<span class="w3-right" style="margin-top : 4px">${u.getPoint()}</span>
    			</div>
       		<div class="w3-col w3-right s1" style="padding:0px">
    				<img src="./img/emptystar.png" style="width:100%">
