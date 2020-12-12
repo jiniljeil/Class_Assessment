@@ -68,7 +68,7 @@ select{
    		</div>
    		<div class="w3-col s6 w3-justify">   	
    			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
+   			<h6 class="w3-center" style="font-size:9pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
@@ -81,7 +81,7 @@ select{
   </div>
    
   <a href="madeby.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">Madeby</a>
-  <a href="home.jsp" class="w3-bar-item w3-button w3-padding w3-light-grey">로그아웃</a>
+  <a href="home.jsp" class="w3-bar-item w3-button w3-padding">로그아웃</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -103,8 +103,7 @@ select{
   <header class="w3-container w3-xlarge" style="margin-bottom : 0px">
     <p class="w3-left">만든이</p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
-      <i class="fa fa-search"></i>
+      <i class="fa fa-star-o"></i>
     </p>
   </header>
   <hr style="margin-top:0px; margin-bottom:20px; color:black; background-color:black;"></hr>
@@ -116,7 +115,7 @@ select{
  	 <div class="w3-col l6 s6 w3-padding">
 	  	<div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       		<img src="./img/jinil.png" style="width:100%; margin-top:10px">
-      	<hr style="margin:10px"></hr>
+      	<hr style="margin-top:10px; margin-bottom:0px"></hr>
       	<div class="w3-container w3-padding">
       		<h3 class="w3-center">김진일</h3>
       	</div>
@@ -126,7 +125,7 @@ select{
       <div class="w3-col l6 s6 w3-padding">
 	  	<div class="w3-container w3-margin-bottom w3-display-container" style="border-radius:20px; background-color:#FFE1A2">
       		<img src="./img/jihooni.jpeg" style="width:100%; margin-top:10px">
-      	<hr style="margin:10px"></hr>
+      	<hr style="margin-top:10px; margin-bottom:0px"></hr>
       	<div class="w3-container w3-padding">
       		<h3 class="w3-center">정지훈</h3>
       	</div>

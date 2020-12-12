@@ -126,7 +126,7 @@ select{
    		</div>
    		<div class="w3-col s6 w3-justify">   	
    			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
+   			<h6 class="w3-center" style="font-size:9pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
