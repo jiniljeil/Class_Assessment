@@ -69,7 +69,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    		</div>
    		<div class="w3-col s6 w3-justify">   	
    			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
+   			<h6 class="w3-center" style="font-size:9pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
@@ -130,7 +130,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	      	 </div>
 	      	 <div class="w3-container w3-row-padding">
 	      		<div class="w3-col w3-right s1" style="padding:0px; width:5%">
-	   				<span class="w3-right" style="margin-top : 3px" id="point_lecture1">${u.getPoint()}</span>
+	   				<span class="w3-right" style="margin-top : 4px" id="point_lecture1">${u.getPoint()}</span>
 	   			</div>
 	   			<!-- 별 수정 -->
 	   			<!-- <script>
@@ -189,7 +189,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       	</div>
       	<div class="w3-container w3-row-padding">
       		<div class="w3-col w3-right s1" style="padding:0px ; width:5%">
-   				<span class="w3-right" style="margin-top : 3px" id="point_lecture2">${u.getPoint()}</span>
+   				<span class="w3-right" style="margin-top : 4px" id="point_lecture2">${u.getPoint()}</span>
    			</div>
    			<script>right_star();</script>
    			
@@ -227,7 +227,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 
 <script>
-// Accordion 
+//Accordion 
 function myAccFunc() {
   var x = document.getElementById("demoAcc");
   if (x.className.indexOf("w3-show") == -1) {
@@ -242,13 +242,13 @@ document.getElementById("myBtn").click();
 
 // Open and close sidebar
 function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
 }
  
 function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
 }
 
 function right_star(){

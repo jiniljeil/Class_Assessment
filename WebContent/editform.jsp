@@ -130,13 +130,13 @@ select{
    		</div>
    		<div class="w3-col s6 w3-justify">   	
    			<h3 class="w3-center"><b><%=vo.getNickname()%></b></h3>
-   			<h6 class="w3-center" style="font-size:10pt"><%=vo.getHakbu() %></h6>
+   			<h6 class="w3-center" style="font-size:9pt"><%=vo.getHakbu() %></h6>
    		</div>
    	</div>
   </div>
   
   <div class="w3-padding-16 w3-large w3-text-grey" style="font-weight:bold">
-  	<a href="list.jsp" class="w3-bar-item w3-button w3-light-grey">전체 평가</a>
+  	<a href="list.jsp" class="w3-bar-item w3-button ">전체 평가</a>
   	<a href="mylist.jsp" class="w3-bar-item w3-button">내가 쓴 강의 평가</a>
   	<a href="addpost.jsp" class="w3-bar-item w3-button">강의 평가 작성하기</a>
     <a href="#" class="w3-bar-item w3-button">시간표 등록</a>
@@ -163,7 +163,7 @@ select{
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">평점 주기</p>
+    <p class="w3-left">수정하기</p>
     <p class="w3-right">
       <i class="fa fa-star-o"></i>
     </p>
